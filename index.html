@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoanAI — Smart Financial Decision Support Platform</title>
+  <meta name="description" content="AI-powered BFSI financial decision-support platform for loan eligibility estimation, credit health analysis, real-time EMI calculation, and personalized financial tips.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Global Header & Sticky Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LoanAI Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">
+            LoanAI
+            <span class="brand-badge">BFSI Pro</span>
+          </div>
+          <div class="brand-subtitle">Smart Financial Decision Support</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Home
+        </a>
+        <a href="loan-eligibility.html" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Loan Eligibility
+        </a>
+        <a href="credit-score.html" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          Credit Score
+        </a>
+        <a href="emi-calculator.html" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
+          EMI Calculator
+        </a>
+        <a href="financial-tips.html" class="nav-link nav-link-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          AI Financial Tips
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="mobile-nav-link active">Home <span>&rarr;</span></a>
+    <a href="loan-eligibility.html" class="mobile-nav-link">Loan Eligibility <span>&rarr;</span></a>
+    <a href="credit-score.html" class="mobile-nav-link">Credit Score <span>&rarr;</span></a>
+    <a href="emi-calculator.html" class="mobile-nav-link">EMI Calculator <span>&rarr;</span></a>
+    <a href="financial-tips.html" class="mobile-nav-link" style="color: var(--primary-light);">AI Financial Tips <span>&rarr;</span></a>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          Next-Gen BFSI Financial Intelligence
+        </div>
+        
+        <h1 class="hero-title">
+          Smarter Financial Decisions, <br>
+          <span class="hero-title-highlight">Powered by Modern AI</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Evaluate institutional loan eligibility, analyze credit bureau health, calculate exact reducing-balance EMI schedules, and unlock personalized AI-driven financial decision support in seconds.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="loan-eligibility.html" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Check Loan Eligibility
+          </a>
+          <a href="emi-calculator.html" class="btn btn-secondary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line></svg>
+            Calculate EMI Instantly
+          </a>
+          <a href="financial-tips.html" class="btn btn-outline-cyan btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            Ask AI Advisor
+          </a>
+        </div>
+
+        <!-- Metric Ticker Grid -->
+        <div class="stats-ticker-grid">
+          <div class="glass-panel stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Deterministic Precision</div>
+          </div>
+          <div class="glass-panel stat-item">
+            <div class="stat-num">&lt; 0.2s</div>
+            <div class="stat-label">Instant Real-Time Math</div>
+          </div>
+          <div class="glass-panel stat-item">
+            <div class="stat-num">5 Factor</div>
+            <div class="stat-label">Bureau Risk Analysis</div>
+          </div>
+          <div class="glass-panel stat-item">
+            <div class="stat-num">AI Insights</div>
+            <div class="stat-label">Claude Contextual Engine</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Four Core Modules Section -->
+      <section style="margin-top: 4.5rem;">
+        <div class="section-header">
+          <div class="section-tag">Integrated Fintech Suite</div>
+          <h2 class="section-title">Four Intelligent Financial Decision Engines</h2>
+          <p class="section-desc">Designed with institutional BFSI guidelines to provide clear, actionable clarity before you approach lending institutions.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Card 1: Loan Eligibility -->
+          <div class="glass-panel glass-card-interactive feature-card">
+            <div class="feature-icon-wrap icon-cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3 class="feature-card-title">1. Loan Eligibility Checker</h3>
+            <p class="feature-card-desc">
+              Calculate maximum eligible borrowing capacity based on FOIR, Debt-to-Income (DTI), age horizons, and credit tiers. Get instant risk classification (Low, Moderate, High) with transparent factor scores.
+            </p>
+            <div class="feature-card-footer">
+              <span>Dynamic FOIR & DTI Engine</span>
+              <a href="loan-eligibility.html" style="color: var(--primary-light); font-weight: 600;">Launch Checker &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Credit Score Analyzer -->
+          <div class="glass-panel glass-card-interactive feature-card">
+            <div class="feature-icon-wrap icon-emerald">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4M12 16V8"></path></svg>
+            </div>
+            <h3 class="feature-card-title">2. Credit Score Analyzer</h3>
+            <p class="feature-card-desc">
+              Deconstruct your bureau score across 5 weighted factors: Payment History (35%), Credit Utilization (30%), Age (15%), Credit Mix (10%), and Recent Inquiries (10%). Receive a personalized 30/90-day action roadmap.
+            </p>
+            <div class="feature-card-footer">
+              <span>Circular Gauge & Factor Weights</span>
+              <a href="credit-score.html" style="color: #34d399; font-weight: 600;">Analyze Score &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3: EMI Calculator -->
+          <div class="glass-panel glass-card-interactive feature-card">
+            <div class="feature-icon-wrap icon-violet">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+            </div>
+            <h3 class="feature-card-title">3. Real-Time EMI Calculator</h3>
+            <p class="feature-card-desc">
+              Model monthly loan installments with standard reducing-balance calculations. Interactive animated SVG Donut chart highlights Principal vs. Interest percentage, coupled with a full year-by-year amortization schedule.
+            </p>
+            <div class="feature-card-footer">
+              <span>Reducing Balance & Donut Visuals</span>
+              <a href="emi-calculator.html" style="color: #c4b5fd; font-weight: 600;">Calculate EMI &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 4: AI Financial Tips -->
+          <div class="glass-panel glass-card-interactive feature-card">
+            <div class="feature-icon-wrap icon-amber">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </div>
+            <h3 class="feature-card-title">4. AI Financial Advisor</h3>
+            <p class="feature-card-desc">
+              Get contextual, personalized guidance tailored to your exact cash flow, DTI, and financial goals. Includes instant prompt chips, stress testing scenarios, and structured actionable recommendations without exposing secret API keys.
+            </p>
+            <div class="feature-card-footer">
+              <span>Claude Abstraction & Contextual Advice</span>
+              <a href="financial-tips.html" style="color: #fbbf24; font-weight: 600;">Get AI Advice &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Workflow -->
+      <section style="margin-top: 5rem;">
+        <div class="section-header">
+          <div class="section-tag">Streamlined Process</div>
+          <h2 class="section-title">How LoanAI Empowers Your Financial Journey</h2>
+          <p class="section-desc">Four clear steps from initial data inputs to comprehensive loan readiness.</p>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">01</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Input Cash Flow</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Enter monthly earnings, current EMI commitments, and requested loan parameters.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem;">02</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Deterministic Math</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Standardized BFSI formulas compute exact DTI, FOIR caps, and max eligible capacity.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; font-weight: 800; color: #8b5cf6; margin-bottom: 0.5rem;">03</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Bureau Analysis</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Evaluate credit score health, factor weightings, and identify critical improvement flags.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; font-weight: 800; color: #f59e0b; margin-bottom: 0.5rem;">04</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">AI Advisory</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Receive tailored action plans, rate optimization strategies, and emergency stress testing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Institutional Disclaimer Banner -->
+      <div class="disclaimer-banner">
+        <div class="disclaimer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Decision-Support Prototype Notice:</strong> LoanAI is an educational financial decision-support and eligibility estimation platform. The calculations, eligibility statuses, and risk classifications generated represent simulated models based on standard BFSI underwriting heuristics. This application does not constitute a formal loan offer or guaranteed bank sanction. Final loan approval remains subject to individual lender verification, bureau validation, and credit appraisal policies.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-name">LoanAI</div>
+              <div class="brand-subtitle">Smart Financial Decision Support</div>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; max-width: 340px;">
+            A responsive, multi-page financial intelligence platform combining deterministic BFSI business logic with modern AI advisory abstractions.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Decision Tools</h4>
+          <div class="footer-links">
+            <a href="loan-eligibility.html">Loan Eligibility Checker</a>
+            <a href="credit-score.html">Credit Score Analyzer</a>
+            <a href="emi-calculator.html">EMI Calculator</a>
+            <a href="financial-tips.html">AI Financial Tips</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Underwriting Math</h4>
+          <div class="footer-links">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Reducing-Balance EMI</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">FOIR / DTI Thresholds</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">5-Factor Credit Weights</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Risk-Based Pricing</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Security & Stack</h4>
+          <div class="footer-links">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Zero Secret Leaks</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Pure HTML5 / CSS3 / ES6</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">GitHub Pages Ready</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Audit Trail Storage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 LoanAI Platform. Designed for BFSI Financial Decision Support.</div>
+        <div style="display: flex; gap: 1.25rem;">
+          <a href="loan-eligibility.html">Eligibility</a>
+          <a href="credit-score.html">Credit</a>
+          <a href="emi-calculator.html">EMI</a>
+          <a href="financial-tips.html">AI Advice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

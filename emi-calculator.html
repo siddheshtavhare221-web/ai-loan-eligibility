@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMI Calculator — LoanAI Decision Support</title>
+  <meta name="description" content="Calculate real-time reducing-balance loan EMIs, view principal vs interest donut breakdown, and analyze full yearly amortization schedules.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Global Header & Sticky Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LoanAI Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">
+            LoanAI
+            <span class="brand-badge">BFSI Pro</span>
+          </div>
+          <div class="brand-subtitle">Smart Financial Decision Support</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Home
+        </a>
+        <a href="loan-eligibility.html" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Loan Eligibility
+        </a>
+        <a href="credit-score.html" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          Credit Score
+        </a>
+        <a href="emi-calculator.html" class="nav-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line></svg>
+          EMI Calculator
+        </a>
+        <a href="financial-tips.html" class="nav-link nav-link-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          AI Financial Tips
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="mobile-nav-link">Home <span>&rarr;</span></a>
+    <a href="loan-eligibility.html" class="mobile-nav-link">Loan Eligibility <span>&rarr;</span></a>
+    <a href="credit-score.html" class="mobile-nav-link">Credit Score <span>&rarr;</span></a>
+    <a href="emi-calculator.html" class="mobile-nav-link active">EMI Calculator <span>&rarr;</span></a>
+    <a href="financial-tips.html" class="mobile-nav-link" style="color: var(--primary-light);">AI Financial Tips <span>&rarr;</span></a>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Page Intro Header -->
+      <div class="page-intro-header">
+        <h1 class="page-title">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+          Real-Time EMI Calculator
+        </h1>
+        <p class="page-description">
+          Compute accurate monthly installments based on standard reducing-balance amortization: <br>
+          <code style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary-light);">EMI = P &times; r &times; (1+r)ⁿ / ((1+r)ⁿ - 1)</code>. Instant updates without page reload.
+        </p>
+      </div>
+
+      <!-- Two-Column Interactive Grid -->
+      <div class="app-layout-grid">
+        
+        <!-- Column 1: EMI Inputs Form -->
+        <section class="glass-panel" aria-labelledby="emi-form-heading">
+          <h2 id="emi-form-heading" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>Loan Parameters</span>
+            <span class="badge badge-purple">Zero Reload</span>
+          </h2>
+
+          <form id="emiCalculatorForm" onsubmit="event.preventDefault();">
+            
+            <!-- Principal Loan Amount -->
+            <div class="form-group">
+              <div class="form-label-wrap">
+                <label for="emiAmountInput" class="form-label">Total Loan Amount (Principal)</label>
+                <span class="form-value-display">₹ Principal</span>
+              </div>
+              <div class="input-with-icon" style="margin-bottom: 0.5rem;">
+                <span class="input-prefix">₹</span>
+                <input type="number" id="emiAmountInput" class="input-control" value="1000000" min="50000" max="100000000" step="50000">
+              </div>
+              <input type="range" id="emiAmountSlider" class="slider-control" min="100000" max="20000000" step="50000" value="1000000">
+              <div class="slider-meta-bounds">
+                <span>₹1 Lakh</span>
+                <span>₹50 Lakhs</span>
+                <span>₹1 Crore</span>
+                <span>₹2 Crores</span>
+              </div>
+            </div>
+
+            <!-- Interest Rate % -->
+            <div class="form-group">
+              <div class="form-label-wrap">
+                <label for="emiRateInput" class="form-label">Annual Interest Rate (% p.a.)</label>
+                <span class="form-value-display">% Per Annum</span>
+              </div>
+              <div class="input-with-icon" style="margin-bottom: 0.5rem;">
+                <span class="input-prefix">%</span>
+                <input type="number" id="emiRateInput" class="input-control" value="8.5" min="4" max="25" step="0.1">
+              </div>
+              <input type="range" id="emiRateSlider" class="slider-control" min="5" max="20" step="0.25" value="8.5">
+              <div class="slider-meta-bounds">
+                <span>5% (Secured/Home)</span>
+                <span>8.5% (Benchmark)</span>
+                <span>12% (Personal)</span>
+                <span>20% (Max)</span>
+              </div>
+            </div>
+
+            <!-- Loan Tenure -->
+            <div class="form-group">
+              <div class="form-label-wrap">
+                <label for="emiTenureInput" class="form-label">Loan Repayment Tenure</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <select id="emiTenureUnit" class="input-control" style="padding: 0.2rem 1.8rem 0.2rem 0.6rem; font-size: 0.8rem; height: auto;">
+                    <option value="years" selected>Years</option>
+                    <option value="months">Months</option>
+                  </select>
+                </div>
+              </div>
+              <input type="number" id="emiTenureInput" class="input-control" value="5" min="1" max="30" step="1" style="margin-bottom: 0.5rem;">
+              <input type="range" id="emiTenureSlider" class="slider-control" min="1" max="30" value="5">
+              <div class="slider-meta-bounds">
+                <span>1 Year</span>
+                <span>5 Years</span>
+                <span>15 Years</span>
+                <span>30 Years</span>
+              </div>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- Column 2: Sticky Dynamic Results Card -->
+        <aside class="glass-panel app-sidebar-sticky" aria-label="EMI Calculation Results">
+          
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Repayment Assessment</h3>
+            <span class="badge badge-success"><span class="badge-dot"></span> Live Reducing Math</span>
+          </div>
+
+          <!-- Highlight Monthly EMI -->
+          <div style="background: rgba(12, 18, 30, 0.85); border: 1px solid var(--primary-glow); border-radius: var(--radius-sm); padding: 1.5rem; text-align: center; margin-bottom: 1.5rem; box-shadow: 0 0 24px rgba(6, 182, 212, 0.15);">
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 600; margin-bottom: 0.35rem;">
+              Calculated Monthly EMI
+            </div>
+            <div id="monthlyEmiDisplay" style="font-family: var(--font-mono); font-size: 2.6rem; font-weight: 800; color: #ffffff;">
+              ₹20,517
+            </div>
+            <div style="font-size: 0.8rem; color: var(--primary-light); margin-top: 0.25rem;">
+              Payable monthly on reducing balance
+            </div>
+          </div>
+
+          <!-- Donut Chart & Legend -->
+          <div class="chart-container-wrap">
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 160 160" style="transform: rotate(-90deg); width: 100%; height: 100%;">
+                <!-- Background / Principal circle (cyan) -->
+                <circle cx="80" cy="80" r="68" fill="none" stroke="#06b6d4" stroke-width="16" />
+                <!-- Interest circle (violet) -->
+                <circle id="donutInterestSegment" cx="80" cy="80" r="68" fill="none" stroke="#8b5cf6" stroke-width="16" stroke-linecap="round" />
+              </svg>
+              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                <span id="donutCenterPercent" style="font-family: var(--font-mono); font-size: 1.3rem; font-weight: 800; color: #ffffff;">78%</span>
+                <span style="font-size: 0.65rem; color: var(--text-muted); display: block; text-transform: uppercase;">Principal</span>
+              </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-label-group">
+                  <div class="legend-color-dot dot-principal"></div>
+                  <span>Principal (<span id="principalPercentDisplay">78.5%</span>)</span>
+                </div>
+                <span id="totalPrincipalDisplay" class="legend-val">₹10,00,000</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-label-group">
+                  <div class="legend-color-dot dot-interest"></div>
+                  <span>Interest (<span id="interestPercentDisplay">21.5%</span>)</span>
+                </div>
+                <span id="totalInterestDisplay" class="legend-val" style="color: #c4b5fd;">₹2,31,020</span>
+              </div>
+              <div style="height: 1px; background: var(--glass-border); margin: 0.25rem 0;"></div>
+              <div class="legend-item">
+                <span style="font-weight: 600; color: var(--text-main);">Total Repayment:</span>
+                <span id="totalRepaymentDisplay" class="legend-val" style="color: #67e8f9; font-size: 1.05rem;">₹12,31,020</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem;">
+            <button id="sendEmiToAiBtn" class="btn btn-primary btn-block">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+              Ask AI How to Optimize this EMI
+            </button>
+            <button id="saveEmiAnalysisBtn" class="btn btn-secondary btn-block">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline></svg>
+              Save EMI Calculation Record
+            </button>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- Amortization Schedule Table Section -->
+      <section style="margin-top: 3.5rem;">
+        <div class="glass-panel">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 700;">Yearly Amortization Schedule</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;">
+                See how each year's payments are split between principal pay-down and financing interest.
+              </p>
+            </div>
+            <span class="badge badge-primary">Reducing Balance</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Opening Principal</th>
+                  <th>Principal Paid</th>
+                  <th>Interest Paid</th>
+                  <th>Total Payment</th>
+                  <th>Closing Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortizationTableBody">
+                <!-- Dynamically generated by emi.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Institutional Disclaimer Banner -->
+      <div class="disclaimer-banner">
+        <div class="disclaimer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <div class="disclaimer-text">
+          <strong>Amortization Notice:</strong> Figures calculated assume a standard fixed-rate reducing-balance amortization model. Applicable statutory levies, goods & services taxes (GST), loan origination fees, or floating-rate reset dates may influence actual bank repayment schedules.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 LoanAI Platform. Designed for BFSI Financial Decision Support.</div>
+        <div style="display: flex; gap: 1.25rem;">
+          <a href="index.html">Home</a>
+          <a href="loan-eligibility.html">Loan Eligibility</a>
+          <a href="credit-score.html">Credit Score</a>
+          <a href="financial-tips.html">AI Advisor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/emi.js"></script>
+</body>
+</html>
